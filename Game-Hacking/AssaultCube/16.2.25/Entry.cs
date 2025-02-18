@@ -4,6 +4,6 @@ public static class Entry{
 		Console.WriteLine("Starting Program...");
 		Console.WriteLine("This is made for Educational Purposes only!");
 		Proc _process = new Proc();
-		_process.GetProcess();
+		_process.GetProcessInfo();
 	}
 }
