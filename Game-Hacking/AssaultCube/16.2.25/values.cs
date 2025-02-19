@@ -1,7 +1,7 @@
 public static class Values{
-	public static IntPtr Health = "";
-	public static IntPtr Ammo = "";
-	public static IntPtr Speed = "";
-	public static IntPtr Armor = "";
-	public static IntPtr Grenades = "";
+	public static IntPtr Health = new IntPtr();
+	public static IntPtr Ammo =  new IntPtr();
+	public static IntPtr Speed =  new IntPtr();
+	public static IntPtr Armor =  new IntPtr();
+	public static IntPtr Grenades =  new IntPtr();
 }
