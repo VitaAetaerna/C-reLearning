@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System;
 
 public class Proc{
 	private ProcModify _procModify = new ProcModify(); // Used for the Memory Manipulation
@@ -18,17 +19,19 @@ public class Proc{
 
 		// If no process of Game was found -> Exit
 		if (processSnapshot == null){
-			Console.WriteLine("Could not find the target's Process Name / Process ID");
-			return null; 
-		}
+			Console.WriteLine("Could not find the target's Process Name / Process ID"); 
+			Environment.Exit(0);		}
+ 
 		// Extract the Main Process that i want to edit and read memory from
 		var mainProcess = processSnapshot[0];
 
-		// Output all the found Processes with the name and its PID -> Also output the main Process + its PID and Output the Main Process and its Base Handle
-		foreach (var item in processSnapshot){
-			Console.WriteLine("PID to " + item + " is " + item.Id);
-		}
 		Console.WriteLine("Parent Process is " + mainProcess + " ID: " + mainProcess.Id);
+
+
+		// Output all the found Processes with the name and its PID -> Also output the main Process + its PID and Output the Main Process and its Base Handle
+		for (int i = 0; i<processSnapshot.Length - 1; i++){
+			Console.WriteLine("Child Process ID to " + processSnapshot[i + 1] + " is " + processSnapshot[i + 1].Id);
+		}
 		return mainProcess;
 	}
 
@@ -42,4 +45,3 @@ public class Proc{
 		return baseHandle;
 	}
 }
- 
